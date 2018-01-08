@@ -1,0 +1,29 @@
+<form>
+  <input type="text" ng-model="prod.name" placeholder="Name" /><br />
+  <input type="text" ng-model="prod.price" placeholder="Price" /><br />
+  <input type="text" ng-model="prod.imgUrl" placeholder="Image URL" /><br />
+  <input type="number" ng-model="prod.rating" placeholder="rating" /><br />
+  <input type="submit" ng-click="vm.addProduct(prod); prod = {}" value="Add Item" />
+</form>
+
+
+<!-- <form>
+	<input type="text" ng-model="vm.user.name" placeholder="name"/>
+	<input type="number" ng-model="vm.user.age" />
+	<input type="text" ng-model="vm.user.hometown" />
+	<input type="submit" ng-click="vm.logUser()" />
+</form> -->
+
+
+
+<h1> Num Products: {{ vm.getNumProduct() }}</h1>
+
+<button ng-click="vm.sayThings()">Say</button>
+<button ng-click="vm.addProduct()">Add</button>
+
+<div ng-repeat="prod in vm.products">
+	<h3>{{prod.name}}</h3>
+	<div ng-click="vm.makeExpensive(prod)"><i><a>${{prod.price}}</a></i></div>
+	<div><img ng-src="{{prod.imgUrl}}"/></div>
+	<div><b>{{prod.rating}} / 5</b></div>
+</div>
